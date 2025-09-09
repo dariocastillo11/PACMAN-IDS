@@ -1,9 +1,9 @@
 import pytest
-from powerup import SpeedBoostPowerUp
+from pacman.powerup import SpeedBoostPowerUp
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../')))
-from pacman import Pacman
+from pacman.pacman import Pacman
 from unittest.mock import MagicMock, patch
 velocidadprueba = 5.0
 os.environ

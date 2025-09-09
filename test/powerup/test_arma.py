@@ -1,10 +1,10 @@
-from powerup import GunPowerUp, Bullet
+from pacman.powerup import GunPowerUp, Bullet
 import pytest
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../../src')))
 
-from pacman import Pacman
+from pacman.pacman import Pacman
 from unittest.mock import MagicMock, patch
 os.environ
 import pygame

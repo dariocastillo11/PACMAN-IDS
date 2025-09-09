@@ -1,8 +1,8 @@
 import sys
 import os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../../')))
-from ghosts import Ghost, Blinky, Pinky, Inky, Clyde, GhostGroup
-from constants import SPAWN, FREIGHT
+from pacman.ghosts import Ghost, Blinky, Pinky, Inky, Clyde, GhostGroup
+from pacman.constants import SPAWN, FREIGHT
 from unittest.mock import MagicMock, patch
 import pytest
 
