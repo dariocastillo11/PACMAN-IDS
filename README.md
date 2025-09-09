@@ -84,6 +84,3 @@ sudo docker run -it \
 ---
 
 
-# PACMAN
-# PACMAN
-# PACMAN-IDS
