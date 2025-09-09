@@ -1,0 +1,8 @@
+{
+  "security": {
+    "critical": true,
+    "high": true,
+    "medium": false,
+    "low": false
+  }
+}
