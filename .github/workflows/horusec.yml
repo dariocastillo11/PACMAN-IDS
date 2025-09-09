@@ -19,4 +19,14 @@ jobs:
 
       - name: Run Horusec Scan
         run: |
-          horusec start -p . --config-file-path=horusec-config.json
+          horusec start \
+            -p . \
+            --config-file-path=horusec-config.json \
+            --information-severity=true \
+            --enable-owasp-dependency-check \
+            --enable-git-history \
+            --enable-shellcheck \
+            --log-level=debug \
+            --return-error \
+            --output-format json \
+            --json-output-file horusec-report.json
