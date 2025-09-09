@@ -27,6 +27,7 @@ jobs:
             --enable-git-history \
             --enable-shellcheck \
             --log-level=debug \
+            --return-error \
             --disable-docker \
             --output-format json \
             --json-output-file horusec-report.json
