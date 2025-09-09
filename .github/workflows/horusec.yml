@@ -1,23 +1,9 @@
-crar archivo ***horusec-config.json***
-```
-{
-  "security": {
-    "critical": true,
-    "high": true,
-    "medium": false,
-    "low": false
-  }
-}
-```
-
-- configuro workflow de github actions
-creo archivo en workflow llamado horusec.yml 
-```
 name: Horusec Security Scan
 
 on:
   pull_request:
     branches:
+      - develop
       - main
 
 jobs:
@@ -34,5 +20,3 @@ jobs:
       - name: Run Horusec Scan
         run: |
           horusec start -p . --config-file-path=horusec-config.json
-
-```
