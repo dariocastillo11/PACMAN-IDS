@@ -91,7 +91,7 @@ YOUR ANALYSIS HAD FINISHED WITHOUT ANY VULNERABILITY!
 ---
 
 ## 2. Vulnerabilidades de prueba
-# en una rama prueba-vulnerabilidad creo los siguientes archivos:
+
 ### 2.1 Python (`vulnerable.py`)
 
 ```python
@@ -240,3 +240,14 @@ horusec start \
 * La integración permite asegurar la **calidad y seguridad del software** de manera automatizada.
 
 ---
+
+
+# correr horusec con docker
+
+```
+sudo docker run --rm -v $(pwd):/src horuszup/horusec-cli:latest horusec start \
+    --project-path /src \
+    --output-format json \
+    --json-output-file /src/horusec-report.json \
+    --disable-docker
+```
