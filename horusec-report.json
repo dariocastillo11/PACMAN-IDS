@@ -1,21 +1,21 @@
 {
   "version": "v2.8.0",
-  "id": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
+  "id": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
   "repositoryID": "00000000-0000-0000-0000-000000000000",
   "repositoryName": "",
   "workspaceID": "00000000-0000-0000-0000-000000000000",
   "workspaceName": "",
   "status": "success",
   "errors": "",
-  "createdAt": "2025-09-11T19:20:03.696297652Z",
-  "finishedAt": "2025-09-11T19:20:08.400296912Z",
+  "createdAt": "2025-09-11T19:28:15.752463959Z",
+  "finishedAt": "2025-09-11T19:28:20.723538037Z",
   "analysisVulnerabilities": [
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
-      "createdAt": "2025-09-11T19:20:08.400299722Z",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723541587Z",
       "vulnerabilities": {
-        "vulnerabilityID": "dd10ed11-0709-44c2-bccc-287f1051f74f",
+        "vulnerabilityID": "5b900823-2447-412b-b6cd-2f15452c12a5",
         "line": "8",
         "column": "0",
         "confidence": "MEDIUM",
@@ -43,10 +43,10 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
-      "createdAt": "2025-09-11T19:20:08.400306972Z",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723549687Z",
       "vulnerabilities": {
-        "vulnerabilityID": "c07f0074-9acc-47df-bce2-ead17dd01e9c",
+        "vulnerabilityID": "48e4914d-17bd-4ea8-ac47-ef0c10fd2744",
         "line": "7",
         "column": "0",
         "confidence": "MEDIUM",
@@ -74,10 +74,10 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
-      "createdAt": "2025-09-11T19:20:08.400309052Z",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723551957Z",
       "vulnerabilities": {
-        "vulnerabilityID": "8998a420-2d14-4112-a458-47f4f2ea8655",
+        "vulnerabilityID": "2309c504-0afa-4484-8158-c9514744f792",
         "line": "131",
         "column": "4",
         "confidence": "MEDIUM",

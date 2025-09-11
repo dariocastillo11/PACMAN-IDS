@@ -2,7 +2,7 @@
   "security": {
     "critical": true,
     "high": true,
-    "medium": false,
-    "low": false
+    "medium": true,
+    "low": true
   }
 }
