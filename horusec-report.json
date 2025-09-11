@@ -1,0 +1,107 @@
+{
+  "version": "v2.8.0",
+  "id": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+  "repositoryID": "00000000-0000-0000-0000-000000000000",
+  "repositoryName": "",
+  "workspaceID": "00000000-0000-0000-0000-000000000000",
+  "workspaceName": "",
+  "status": "success",
+  "errors": "",
+  "createdAt": "2025-09-11T19:28:15.752463959Z",
+  "finishedAt": "2025-09-11T19:28:20.723538037Z",
+  "analysisVulnerabilities": [
+    {
+      "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723541587Z",
+      "vulnerabilities": {
+        "vulnerabilityID": "5b900823-2447-412b-b6cd-2f15452c12a5",
+        "line": "8",
+        "column": "0",
+        "confidence": "MEDIUM",
+        "file": "vulnerable.py",
+        "code": "API_KEY = \"1234567890abcdef\"  # HIGH: credencial hardcodeada",
+        "details": "(1/1) * Possible vulnerability detected: Potential Hard-coded credential\nThe software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",
+        "securityTool": "HorusecEngine",
+        "language": "Leaks",
+        "severity": "CRITICAL",
+        "type": "Vulnerability",
+        "commitAuthor": "-",
+        "commitEmail": "-",
+        "commitHash": "-",
+        "commitMessage": "-",
+        "commitDate": "-",
+        "rule_id": "HS-LEAKS-25",
+        "vulnHash": "27e1a07ab974eb31197d7d6e1c995d7d724cc1ee323677880a649288b989e2b1",
+        "deprecatedHashes": [
+          "8bea926a4c9109cbcbd2a3ff972324fd12fccbf1d86052cc959bdbf52f6fce42",
+          "604032df87a85466fed7738b7574f7f6ca8149aef395a7f94753bc923f8f358e"
+        ],
+        "securityToolVersion": "",
+        "securityToolInfoUri": ""
+      }
+    },
+    {
+      "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723549687Z",
+      "vulnerabilities": {
+        "vulnerabilityID": "48e4914d-17bd-4ea8-ac47-ef0c10fd2744",
+        "line": "7",
+        "column": "0",
+        "confidence": "MEDIUM",
+        "file": "vulnerable.py",
+        "code": "password = \"123456\"  # HIGH: contraseña hardcodeada",
+        "details": "(1/1) * Possible vulnerability detected: Hard-coded password\nThe software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",
+        "securityTool": "HorusecEngine",
+        "language": "Leaks",
+        "severity": "CRITICAL",
+        "type": "Vulnerability",
+        "commitAuthor": "-",
+        "commitEmail": "-",
+        "commitHash": "-",
+        "commitMessage": "-",
+        "commitDate": "-",
+        "rule_id": "HS-LEAKS-26",
+        "vulnHash": "29b20c850526ea3eb7c8ea8e8caaa1b083b62be1eda99a6729779e274fdbbb01",
+        "deprecatedHashes": [
+          "59688ef1f3f0801931c67e32b679a394980a232dc797de84df6e0b7a2fc589c0",
+          "e6e4c48f1c4c2c6d73bf4d7ead328ed6b4532363b52d03abc457d3ad8e60121a"
+        ],
+        "securityToolVersion": "",
+        "securityToolInfoUri": ""
+      }
+    },
+    {
+      "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
+      "analysisID": "3d7584bf-f466-4812-bf7d-d2d3f19f59c9",
+      "createdAt": "2025-09-11T19:28:20.723551957Z",
+      "vulnerabilities": {
+        "vulnerabilityID": "2309c504-0afa-4484-8158-c9514744f792",
+        "line": "131",
+        "column": "4",
+        "confidence": "MEDIUM",
+        "file": "tp2-pasos.md",
+        "code": "password = \"123456\"  # Horusec debería detectarlo como vulnerabilidad",
+        "details": "(1/1) * Possible vulnerability detected: Hard-coded password\nThe software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",
+        "securityTool": "HorusecEngine",
+        "language": "Leaks",
+        "severity": "CRITICAL",
+        "type": "Vulnerability",
+        "commitAuthor": "-",
+        "commitEmail": "-",
+        "commitHash": "-",
+        "commitMessage": "-",
+        "commitDate": "-",
+        "rule_id": "HS-LEAKS-26",
+        "vulnHash": "b9e76e571c626c91bb12b0f984b4e9be90ff33a5cdb563715e21eb62fcd738b2",
+        "deprecatedHashes": [
+          "ec39655a71f467b0acbb6cd738c688b36ccd748651080633e1c80b8eacb66c70",
+          "af4daa2bbd61583647c24befd29f63f251b20aab02ba9a312b073ef536e1b01e"
+        ],
+        "securityToolVersion": "",
+        "securityToolInfoUri": ""
+      }
+    }
+  ]
+}
