@@ -50,15 +50,15 @@ jobs:
 
          
           # Opcional: Fallar por GRAVEDAD MEDIA 
-          # if [ "$MEDIUM_COUNT" -gt 5 ]; then
-          #   echo "Found $MEDIUM_COUNT medium vulnerabilities!"
-          #   exit 1
-          # fi
+           if [ "$MEDIUM_COUNT" -gt 5 ]; then
+             echo "Found $MEDIUM_COUNT medium vulnerabilities!"
+             exit 1
+           fi
 
 
           # Opcional: Fallar por GRAVEDAD BAJA
 
-          # if [ "$LOW_COUNT" -gt 10 ]; then
-          #   echo "Found $LOW_COUNT low vulnerabilities!"
-          #   exit 1
-          # fi
+           if [ "$LOW_COUNT" -gt 10 ]; then
+             echo "Found $LOW_COUNT low vulnerabilities!"
+             exit 1
+           fi
