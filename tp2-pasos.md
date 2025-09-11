@@ -240,3 +240,14 @@ horusec start \
 * La integración permite asegurar la **calidad y seguridad del software** de manera automatizada.
 
 ---
+
+
+correr horusec con docker
+
+```
+sudo docker run --rm -v $(pwd):/src horuszup/horusec-cli:latest horusec start \
+    --project-path /src \
+    --output-format json \
+    --json-output-file /src/horusec-report.json \
+    --disable-docker
+```
