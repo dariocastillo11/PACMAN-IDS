@@ -26,8 +26,23 @@ void medium_risk() {
     fgets(buf, 50, stdin);  // Medium
 }
 
-//EJEMPLO DE FALLA NIVEL BAJO . variable sensible sin protección
+
 void low_risk() {
-    char secret[20] = "123456";  // Low
+    char secret[20] = "123456"; 
     printf("Secret: %s\n", secret);
+}
+void medium_risk() {
+    char buf[50];
+    char input[50] = "user input";  
+    snprintf(buf, sizeof(buf), "%s", input);  // uso seguro de snprintf, pero Horusec puede marcarlo como medium por concatenación
+}
+
+// --- Low ---
+void low_risk() {
+    int x = 5;
+    int y = 0;
+    if (y != 0) {  // operación segura pero Horusec puede marcar un cálculo sospechoso
+        int z = x / y;  // Horusec puede advertir por posible división por cero
+        printf("%d\n", z);
+    }
 }
