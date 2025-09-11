@@ -1,0 +1,64 @@
+name: Horusec Security Scan
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - main
+
+jobs:
+  horusec_scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Horusec
+        run: |
+          curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
+
+      - name: Run Horusec Scan
+        run: |
+          # Ejecuta análisis de seguridad
+          horusec start \
+            --project-path . \
+            --config-file-path=horusec-config.json \
+            --information-severity=true \
+            --disable-docker \
+            --output-format json \
+            --json-output-file horusec-report.json
+
+
+
+          # contadores de vulnerabilidad por gravedad
+
+          CRITICAL_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="CRITICAL")] | length' horusec-report.json)
+          HIGH_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="HIGH")] | length' horusec-report.json)
+          MEDIUM_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="MEDIUM")] | length' horusec-report.json)
+          LOW_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="LOW")] | length' horusec-report.json)
+
+          echo "Critical: $CRITICAL_COUNT, High: $HIGH_COUNT, Medium: $MEDIUM_COUNT, Low: $LOW_COUNT"
+
+         
+
+          # Falla el workflow si hay FALLA CRITICAL o más de 2 HIGH
+         
+          if [ "$HIGH_COUNT" -gt 2 ]; then
+              echo "Found $HIGH_COUNT high vulnerabilities!"
+              exit 1
+          fi
+
+         
+          # Opcional: Fallar por GRAVEDAD MEDIA 
+          # if [ "$MEDIUM_COUNT" -gt 5 ]; then
+          #   echo "Found $MEDIUM_COUNT medium vulnerabilities!"
+          #   exit 1
+          # fi
+
+
+          # Opcional: Fallar por GRAVEDAD BAJA
+
+          # if [ "$LOW_COUNT" -gt 10 ]; then
+          #   echo "Found $LOW_COUNT low vulnerabilities!"
+          #   exit 1
+          # fi
