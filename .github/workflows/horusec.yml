@@ -34,30 +34,30 @@ jobs:
           MEDIUM_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="MEDIUM")] | length' horusec-report.json)
           LOW_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="LOW")] | length' horusec-report.json)
 
-          echo "Resumen de vulnerabilidades:"
-          echo "  Critical: $CRITICAL_COUNT"
-          echo "  High: $HIGH_COUNT"
-          echo "  Medium: $MEDIUM_COUNT"
-          echo "  Low: $LOW_COUNT"
+          echo "=== Resumen de vulnerabilidades ==="
+          echo "Critical: $CRITICAL_COUNT"
+          echo "High: $HIGH_COUNT"
+          echo "Medium: $MEDIUM_COUNT"
+          echo "Low: $LOW_COUNT"
 
           echo "=== Evaluando fallos de workflow ==="
+          FAIL_MESSAGE=""
 
-          # Falla por CRITICAL o más de 2 HIGH
           if [ "$CRITICAL_COUNT" -gt 0 ] || [ "$HIGH_COUNT" -gt 2 ]; then
-            echo "Workflow falló: $CRITICAL_COUNT CRITICAL y $HIGH_COUNT HIGH vulnerabilidades encontradas."
-            exit 1
+            FAIL_MESSAGE+="Workflow falló: $CRITICAL_COUNT CRITICAL y $HIGH_COUNT HIGH.\n"
           fi
 
-          
-           if [ "$MEDIUM_COUNT" -gt 5 ]; then
-             echo "Workflow falló: $MEDIUM_COUNT vulnerabilidades MEDIUM encontradas."
-             exit 1
-           fi
+          if [ "$MEDIUM_COUNT" -gt 5 ]; then
+            FAIL_MESSAGE+="Workflow falló: $MEDIUM_COUNT MEDIUM.\n"
+          fi
 
-          
-           if [ "$LOW_COUNT" -gt 10 ]; then
-             echo "Workflow falló: $LOW_COUNT vulnerabilidades LOW encontradas."
-             exit 1
-           fi
+          if [ "$LOW_COUNT" -gt 10 ]; then
+            FAIL_MESSAGE+="Workflow falló: $LOW_COUNT LOW.\n"
+          fi
+
+          if [ -n "$FAIL_MESSAGE" ]; then
+            echo -e "$FAIL_MESSAGE"
+            exit 1
+          fi
 
           echo "Workflow completado sin fallos críticos ni alta gravedad."
