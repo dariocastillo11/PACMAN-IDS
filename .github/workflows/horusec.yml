@@ -19,7 +19,7 @@ jobs:
 
       - name: Run Horusec Scan
         run: |
-          # Ejecuta análisis de seguridad
+          echo "=== Ejecutando análisis de seguridad con Horusec ==="
           horusec start \
             --project-path . \
             --config-file-path=horusec-config.json \
@@ -28,37 +28,36 @@ jobs:
             --output-format json \
             --json-output-file horusec-report.json
 
-
-
-          # contadores de vulnerabilidad por gravedad
-
+          echo "=== Contando vulnerabilidades por gravedad ==="
           CRITICAL_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="CRITICAL")] | length' horusec-report.json)
           HIGH_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="HIGH")] | length' horusec-report.json)
           MEDIUM_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="MEDIUM")] | length' horusec-report.json)
           LOW_COUNT=$(jq '[.analysisVulnerabilities[].vulnerabilities | select(.severity=="LOW")] | length' horusec-report.json)
 
-          echo "Critical: $CRITICAL_COUNT, High: $HIGH_COUNT, Medium: $MEDIUM_COUNT, Low: $LOW_COUNT"
+          echo "Resumen de vulnerabilidades:"
+          echo "  Critical: $CRITICAL_COUNT"
+          echo "  High: $HIGH_COUNT"
+          echo "  Medium: $MEDIUM_COUNT"
+          echo "  Low: $LOW_COUNT"
 
-         
+          echo "=== Evaluando fallos de workflow ==="
 
-          # Falla el workflow si hay FALLA CRITICAL o más de 2 HIGH
-         
+          # Falla por CRITICAL o más de 2 HIGH
           if [ "$CRITICAL_COUNT" -gt 0 ] || [ "$HIGH_COUNT" -gt 2 ]; then
-            echo "Found $CRITICAL_COUNT critical and $HIGH_COUNT high vulnerabilities!"
+            echo "Workflow falló: $CRITICAL_COUNT CRITICAL y $HIGH_COUNT HIGH vulnerabilidades encontradas."
             exit 1
           fi
 
-         
-          # Opcional: Fallar por GRAVEDAD MEDIA 
+          
            if [ "$MEDIUM_COUNT" -gt 5 ]; then
-             echo "Found $MEDIUM_COUNT medium vulnerabilities!"
+             echo "Workflow falló: $MEDIUM_COUNT vulnerabilidades MEDIUM encontradas."
              exit 1
            fi
 
-
-          # Opcional: Fallar por GRAVEDAD BAJA
-
+          
            if [ "$LOW_COUNT" -gt 10 ]; then
-             echo "Found $LOW_COUNT low vulnerabilities!"
+             echo "Workflow falló: $LOW_COUNT vulnerabilidades LOW encontradas."
              exit 1
            fi
+
+          echo "Workflow completado sin fallos críticos ni alta gravedad."

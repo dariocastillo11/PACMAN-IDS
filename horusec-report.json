@@ -1,26 +1,26 @@
 {
   "version": "v2.8.0",
-  "id": "bb329b38-8a6a-46d1-b3c5-c258f143e310",
+  "id": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
   "repositoryID": "00000000-0000-0000-0000-000000000000",
   "repositoryName": "",
   "workspaceID": "00000000-0000-0000-0000-000000000000",
   "workspaceName": "",
   "status": "success",
   "errors": "",
-  "createdAt": "2025-09-11T17:48:28.487007361Z",
-  "finishedAt": "2025-09-11T17:48:30.912633166Z",
+  "createdAt": "2025-09-11T19:20:03.696297652Z",
+  "finishedAt": "2025-09-11T19:20:08.400296912Z",
   "analysisVulnerabilities": [
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "bb329b38-8a6a-46d1-b3c5-c258f143e310",
-      "createdAt": "2025-09-11T17:48:30.912634856Z",
+      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
+      "createdAt": "2025-09-11T19:20:08.400299722Z",
       "vulnerabilities": {
-        "vulnerabilityID": "83b3dacc-64fd-45d5-8256-5c22364ab13f",
-        "line": "7",
+        "vulnerabilityID": "dd10ed11-0709-44c2-bccc-287f1051f74f",
+        "line": "8",
         "column": "0",
         "confidence": "MEDIUM",
         "file": "vulnerable.py",
-        "code": "API_KEY = \"1234567890abcdef\"",
+        "code": "API_KEY = \"1234567890abcdef\"  # HIGH: credencial hardcodeada",
         "details": "(1/1) * Possible vulnerability detected: Potential Hard-coded credential\nThe software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",
         "securityTool": "HorusecEngine",
         "language": "Leaks",
@@ -32,10 +32,10 @@
         "commitMessage": "-",
         "commitDate": "-",
         "rule_id": "HS-LEAKS-25",
-        "vulnHash": "01318ddb14e34600e7794fad5b55a7fdc6799977ff7a79535fee9580095b5a6e",
+        "vulnHash": "27e1a07ab974eb31197d7d6e1c995d7d724cc1ee323677880a649288b989e2b1",
         "deprecatedHashes": [
-          "f46d85440a3c07b05be0eb49a602ffe0116b4d07f223d0eff0dfa4a37934bf19",
-          "e33e1bc0727e7adf498bd15c4956b1ec8330293e98009a4869dc730f5f7a84a5"
+          "8bea926a4c9109cbcbd2a3ff972324fd12fccbf1d86052cc959bdbf52f6fce42",
+          "604032df87a85466fed7738b7574f7f6ca8149aef395a7f94753bc923f8f358e"
         ],
         "securityToolVersion": "",
         "securityToolInfoUri": ""
@@ -43,15 +43,15 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "bb329b38-8a6a-46d1-b3c5-c258f143e310",
-      "createdAt": "2025-09-11T17:48:30.912638736Z",
+      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
+      "createdAt": "2025-09-11T19:20:08.400306972Z",
       "vulnerabilities": {
-        "vulnerabilityID": "52373eaf-0285-47e5-8e5f-af5a274b656a",
-        "line": "3",
-        "column": "4",
+        "vulnerabilityID": "c07f0074-9acc-47df-bce2-ead17dd01e9c",
+        "line": "7",
+        "column": "0",
         "confidence": "MEDIUM",
         "file": "vulnerable.py",
-        "code": "password = \"123456\"  # Horusec debería detectarlo como vulnerabilidad",
+        "code": "password = \"123456\"  # HIGH: contraseña hardcodeada",
         "details": "(1/1) * Possible vulnerability detected: Hard-coded password\nThe software contains hard-coded credentials, such as a password or cryptographic key, which it uses for its own inbound authentication, outbound communication to external components, or encryption of internal data. For more information checkout the CWE-798 (https://cwe.mitre.org/data/definitions/798.html) advisory.",
         "securityTool": "HorusecEngine",
         "language": "Leaks",
@@ -63,10 +63,10 @@
         "commitMessage": "-",
         "commitDate": "-",
         "rule_id": "HS-LEAKS-26",
-        "vulnHash": "7bc5b447262f9066ecbecba90bea29d8d29e9f2db6776aa7aabf54cd2d12b10c",
+        "vulnHash": "29b20c850526ea3eb7c8ea8e8caaa1b083b62be1eda99a6729779e274fdbbb01",
         "deprecatedHashes": [
-          "95d31ab11a6b9f5b5a0cbb85a8aefe319ee19e67d5ca85b20352ea34c5b46828",
-          "1108beba805507f85b8508ef9643d8d8ffb3b47d83ff78348875f499c48ff121"
+          "59688ef1f3f0801931c67e32b679a394980a232dc797de84df6e0b7a2fc589c0",
+          "e6e4c48f1c4c2c6d73bf4d7ead328ed6b4532363b52d03abc457d3ad8e60121a"
         ],
         "securityToolVersion": "",
         "securityToolInfoUri": ""
@@ -74,11 +74,11 @@
     },
     {
       "vulnerabilityID": "00000000-0000-0000-0000-000000000000",
-      "analysisID": "bb329b38-8a6a-46d1-b3c5-c258f143e310",
-      "createdAt": "2025-09-11T17:48:30.912639576Z",
+      "analysisID": "430be1db-fe59-4b95-bbe6-00ad08b8afa1",
+      "createdAt": "2025-09-11T19:20:08.400309052Z",
       "vulnerabilities": {
-        "vulnerabilityID": "6d48bfd5-f440-46db-bf07-55ed709740a7",
-        "line": "99",
+        "vulnerabilityID": "8998a420-2d14-4112-a458-47f4f2ea8655",
+        "line": "131",
         "column": "4",
         "confidence": "MEDIUM",
         "file": "tp2-pasos.md",
@@ -94,10 +94,10 @@
         "commitMessage": "-",
         "commitDate": "-",
         "rule_id": "HS-LEAKS-26",
-        "vulnHash": "2d9f475460a3cd60af88d993c13ea337a9cb4206e45f2e830a5351554674a4aa",
+        "vulnHash": "b9e76e571c626c91bb12b0f984b4e9be90ff33a5cdb563715e21eb62fcd738b2",
         "deprecatedHashes": [
-          "d0a88e315d8f16e9025e9e9e8db204443e2c818049e5c34b60232b75c1ef5fc6",
-          "dfbb58953b5d6f3471325daa4767b5b2235b0302755ee9840c906ca5293f8354"
+          "ec39655a71f467b0acbb6cd738c688b36ccd748651080633e1c80b8eacb66c70",
+          "af4daa2bbd61583647c24befd29f63f251b20aab02ba9a312b073ef536e1b01e"
         ],
         "securityToolVersion": "",
         "securityToolInfoUri": ""
